@@ -1,0 +1,24 @@
+{
+  "name"         : "node-red-contrib-soapserver",
+  "version"      : "0.0.1",
+  "description"  : "A node-red soap server",
+  "license"      : "Apache-2.0",
+  "dependencies": {
+    "soap": "^0.13.0"
+  },
+  "author": "Neil Kolban <kolban@us.ibm.com>",
+  "keywords": [ "node-red", "soap", "wsdl", "ibm" ],
+  "node-red"     : {
+    "nodes": {
+      "soapserver": "soapserver.js",
+      "soapserverResponse": "soapserverResponse.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "Who Knows Where"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}

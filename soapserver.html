@@ -1,0 +1,62 @@
+<!--
+  Copyright 2015 Neil Kolban.
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+  http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<script type="text/javascript">
+  RED.nodes.registerType('soapserver',{
+    // node definition
+    category: "input",
+    inputs: 0,
+    outputs: 1,
+    icon: "white-globe.png",
+    color: "#a6bbcf",
+    label: function () {
+      return this.name || "soap server"
+    },
+    paletteLabel: "soap server",
+    defaults: {
+      name: { value: "" },
+      port: {
+        value: null,
+        required: true,
+        validate: RED.validators.number()
+      }
+    }
+  });
+</script>
+
+<script type="text/x-red" data-help-name="soapserver">
+   <p>Listen for an incoming SOAP request.</p>
+   <p>This node exposes a fixed WSDL definition that has an operation defined
+   upon it which, when invoked passed a single string from the caller that is placed 
+   in <code>msg.payload</code> and the a flow is started.</p>
+   <p>The configuration for this node is a TCP port number upon which the
+   Node-RED server will listen for incoming requests.</p>
+   <p>There is a companion node to this one which returns a result to the
+   waiting SOAP/HTTP client.</p>
+   <p>The endpoint URL for a SOAP/HTTP client is <code>http://nodeRED-Host:port/soap</code>.
+   The WSDL document for the Web Service can be retrieved from an HTTP GET request
+   to that address with the query string of <code>?wsdl</code>.</p>
+</script>
+
+<script type="text/x-red" data-template-name="soapserver">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-port"><i class="icon-tasks"></i> Port</label>
+        <input type="text" id="node-input-port" placeholder="Port">
+    </div>
+</script>
