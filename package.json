@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "Who Knows Where"
+    "url": "https://github.com/nkolban/node-red-contrib-soapserver"
   },
   "engines": {
     "node": ">=0.10"
